@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="scripts/requirejs/require.js"></script>
+    <script type="text/javascript" src="scripts/requirejs/config.js"></script>
+    <script>
+        require(["Class"], function (Class) {
+            var Vehicle = Class.extend({
+                "virtual init": function(){
+                    console.log("INIT!");
+                },
+                "virtual name": function () {
+                    return "Vehicle"
+                }
+            });
+            var Bike = Vehicle.extend({
+                "override name": function () {
+                    return "Bike ("+this.base.name()+")";
+                },
+                "name:before": function () {
+                    console.log("Requesting name");
+                }
+            });
+            var Car = Vehicle.extend({
+                "override init": function () {
+                    console.log("INIT car!");
+                    this.base.init.apply(this, arguments);
+                },
+                "override name": function () {
+                    return "Car";
+                },
+                "name:before": function () {
+                    console.log("Requesting name");
+                },
+                "name:after": function () {
+                    console.log("Done with name '"+JSON.stringify(arguments)+"'");
+                }
+            });
+            Car.mixin({
+                "getAge": function () {
+                    return 109;
+                }
+            });
+
+
+            var v = new Vehicle();
+            var c = new Car();
+            var b = new Bike();
+
+            console.log(b instanceof Car);
+            console.log(b instanceof Vehicle);
+            console.log(c instanceof Bike);
+            console.log(v.name());
+            console.log(c.name());
+            console.log(c.getAge());
+            console.log(b.name());
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
