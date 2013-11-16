@@ -63,18 +63,9 @@
     <Content Include="scripts\requirejs\config.js" />
     <Content Include="scripts\requirejs\require.js" />
     <Content Include="scripts\requirejs\text.js" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
