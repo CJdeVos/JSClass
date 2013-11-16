@@ -10,7 +10,7 @@ var Vehicle = Class.extend({
   }
 })
 
-var Car = Class.extend({
+var Car = Vehicle.extend({
   "override name": function(){
     return "Car";
   }
