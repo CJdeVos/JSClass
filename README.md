@@ -21,4 +21,12 @@ Car.mixin({
     alert("Name is requested");
   }
 });
+
+var v = new Vehicle();
+var c = new Car();
+
+console.log(c instanceof Car);
+console.log(c instanceof Vehicle);
+console.log(v.name());
+console.log(c.name());
 ```
