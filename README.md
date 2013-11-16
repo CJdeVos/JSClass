@@ -1,7 +1,7 @@
-JSClass
+# JSClass
 =======
 
-Javascript's prototypal inheritance helper using `virtual`, `override`, `:after` and `:before`
+Javascript prototypal inheritance helper using `virtual`, `override`, `:after` and `:before`
 
 ```
 var Vehicle = Class.extend({
