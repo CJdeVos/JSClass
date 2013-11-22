@@ -7,16 +7,13 @@
     <script>
         require(["Class"], function (Class) {
             var Vehicle = Class.extend({
-                "virtual init": function(){
-                    console.log("INIT!");
-                },
                 "virtual name": function () {
                     return "Vehicle"
                 }
             });
             var Bike = Vehicle.extend({
                 "override name": function () {
-                    return "Bike ("+this.base.name()+")";
+                    return "Bike (base "+this.base.name()+")";
                 },
                 "name:before": function () {
                     console.log("Requesting name");
@@ -24,7 +21,6 @@
             });
             var Car = Vehicle.extend({
                 "override init": function () {
-                    console.log("INIT car!");
                     this.base.init.apply(this, arguments);
                 },
                 "override name": function () {

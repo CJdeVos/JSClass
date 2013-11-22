@@ -81,7 +81,7 @@
 
     function extend() {
         var base = this;                    
-        var F = function () { if (this["init"]) this.init(); };
+        var F = function () { if (this["init"]) this.init.apply(this, arguments); };
         F.prototype = Object.create(this.prototype);
         F.extend = extend;
         F.mixin = mixin;
